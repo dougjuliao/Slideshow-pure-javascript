@@ -145,7 +145,7 @@ function viewSlides(){
 			}
 			images[numInicial].style.display = 'block';
 			naviCircle[numInicial].className = 'ativo';
-			Slide.effect('slide',-400,5,'left');
+			Slide.effect('slide',400,5,'right');
 		});
 		Slide.navigation[0].addEventListener('click',function(){
 			numInicial -= 1;
@@ -158,7 +158,7 @@ function viewSlides(){
 			}
 			images[numInicial].style.display = 'block';
 			naviCircle[numInicial].className = 'ativo';
-			Slide.effect('slide',400,5,'right');
+			Slide.effect('slide',-400,5,'left');
 		});
 		for(var a = 0; a < numSlides; a++){
 			naviCircle[a].addEventListener('click',function(){

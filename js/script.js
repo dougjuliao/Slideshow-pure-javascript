@@ -2,12 +2,14 @@ var contentResult = document.querySelector('.mostrar'),
 	buttons 	  = document.querySelectorAll('.buttons'),
 	slideShow 	  = document.querySelector('#slideshow');
 
-var visualizar = {};
-visualizar.displayNone = function(){
-	return slideShow.className = 'display-slide-none';
-};
-visualizar.displayBlock = function(){
-	return slideShow.className = 'display-slide-block';
+var visualizar = {
+	displayNone: function(){
+		slideShow.className = 'display-slide-none';
+    },
+	displayBlock: function(){
+		slideShow.className = 'display-slide-block';
+    }
+
 };
 
 	

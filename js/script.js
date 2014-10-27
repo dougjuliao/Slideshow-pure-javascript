@@ -116,6 +116,25 @@ var Slide = {
 				},time);
 			}
 			break;
+			case 'bounce':
+				if(direction === 'left'){
+					var left = pos,
+						distanceBounce = 30;
+					var bounce = setInterval(function(){
+						left += 5;
+						var randomDist = Math.round(Math.random()*distanceBounce);
+						for(var i = 0; i < numSlides; i++){
+							images[i].style.left = left + 'px';
+							images[i].style.top  = randomDist + 'px';
+						}
+						if(left === 0){ 
+							randomDist = 0;
+							clearInterval(bounce)
+						};
+
+					},time);	
+				}
+			break;
 		}
 	}
 };
@@ -145,7 +164,7 @@ function viewSlides(){
 			}
 			images[numInicial].style.display = 'block';
 			naviCircle[numInicial].className = 'ativo';
-			Slide.effect('slide',400,5,'right');
+			Slide.effect('bounce',-400,10,'left');
 		});
 		Slide.navigation[0].addEventListener('click',function(){
 			numInicial -= 1;
@@ -158,7 +177,7 @@ function viewSlides(){
 			}
 			images[numInicial].style.display = 'block';
 			naviCircle[numInicial].className = 'ativo';
-			Slide.effect('slide',-400,5,'left');
+			Slide.effect('bounce',-400,10,'left');
 		});
 		for(var a = 0; a < numSlides; a++){
 			naviCircle[a].addEventListener('click',function(){
@@ -170,7 +189,7 @@ function viewSlides(){
 				this.className = 'ativo';
 				images[this.id].style.display = 'block';
 
-				Slide.effect('slide',-400,5,'left');
+				Slide.effect('bounce',-400,5,'left');
 			});
 		}
 }

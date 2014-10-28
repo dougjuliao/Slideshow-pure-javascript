@@ -133,6 +133,55 @@ var Slide = {
 						};
 
 					},time);	
+				}else if(direction === 'right'){
+					var right = pos,
+						distanceBounce = 30;
+					var bounce = setInterval(function(){
+						right -= 5;
+						var randomDist = Math.round(Math.random()*distanceBounce);
+						for(var i = 0; i < numSlides; i++){
+							images[i].style.left = right + 'px';
+							images[i].style.top  = randomDist + 'px';
+						}
+						if(right === 0){ 
+							randomDist = 0;
+							clearInterval(bounce)
+						};
+
+					},time);	
+				}
+			break;
+			case 'rotate':
+				if(direction === 'left'){
+					var left = pos;
+					var rotate = setInterval(function(){
+						left += 5;
+						for(var i = 0; i < numSlides; i++){
+				    		images[i].style.left = left + 'px';
+				    		images[i].className = 'rotate-img';
+				    	}
+				    	if (left === 0){ 
+				    		for(var i = 0; i < numSlides; i++){
+				    			images[i].className = '';
+				    		}
+				    		clearInterval(rotate);
+				    	}
+					},time);
+				}else if(direction === 'right'){
+					var right = pos;
+					var rotate = setInterval(function(){
+						right -= 5;
+						for(var i = 0; i < numSlides; i++){
+				    		images[i].style.left = right + 'px';
+				    		images[i].className = 'rotate-img-r';
+				    	}
+				    	if (right === 0){ 
+				    		for(var i = 0; i < numSlides; i++){
+				    			images[i].className = '';
+				    		}
+				    		clearInterval(rotate);
+				    	}
+					},time);
 				}
 			break;
 		}
@@ -153,7 +202,7 @@ function viewSlides(){
 		var numInicial = 0;
 		images[0].style.display = 'block';
 		naviCircle[0].className = 'ativo';
-		Slide.navigation[1].addEventListener('click',function(){
+		Slide.navigation[1].addEventListener('click',function(){ // Navegação DIREITA
 			numInicial += 1;
 			if(numInicial >= numSlides){
 				numInicial = 0;
@@ -164,9 +213,9 @@ function viewSlides(){
 			}
 			images[numInicial].style.display = 'block';
 			naviCircle[numInicial].className = 'ativo';
-			Slide.effect('bounce',-400,10,'left');
+			Slide.effect('rotate',-400,10,'left');
 		});
-		Slide.navigation[0].addEventListener('click',function(){
+		Slide.navigation[0].addEventListener('click',function(){ // Navegação ESQUERDA
 			numInicial -= 1;
 			if(numInicial == -1){
 				numInicial = numSlides - 1;
@@ -177,10 +226,10 @@ function viewSlides(){
 			}
 			images[numInicial].style.display = 'block';
 			naviCircle[numInicial].className = 'ativo';
-			Slide.effect('bounce',-400,10,'left');
+			Slide.effect('rotate',400,10,'right');
 		});
 		for(var a = 0; a < numSlides; a++){
-			naviCircle[a].addEventListener('click',function(){
+			naviCircle[a].addEventListener('click',function(){ // Navegação INDEX-CIRCLE
 
 				for(var i in images){
 					naviCircle[i].className = 'nav-circle';
@@ -189,7 +238,7 @@ function viewSlides(){
 				this.className = 'ativo';
 				images[this.id].style.display = 'block';
 
-				Slide.effect('bounce',-400,5,'left');
+				Slide.effect('slide',-400,5,'left');
 			});
 		}
 }

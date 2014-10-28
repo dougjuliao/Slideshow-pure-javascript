@@ -135,6 +135,54 @@ html{
 .ativo{
 	background-color: #3700FF !important;
 }
+/*** ROTACIONAR DA ESQUERDA PARA DIREITA ****/
+.rotate-img{
+	-webkit-animation:rotacionar 1s;
+	-moz-animation:   rotacionar 1s;
+    -o-animation:     rotacionar 1s;
+	animation:        rotacionar 1s;
+}
+
+@-webkit-keyframes rotacionar{
+	from {transform:rotate(0deg);}
+	to   {transform:rotate(360deg);}
+}
+@-moz-keyframe rotacionar{
+	from {transform:rotate(0deg);}
+	to   {transform:rotate(360deg);}
+}
+@-o-animation rotacionar{
+	from {transform:rotate(0deg);}
+	to   {transform:rotate(360deg);}
+}
+@keyframes rotacionar{
+	from {transform:rotate(0deg);}
+	to   {transform:rotate(360deg);}
+}
+
+/*** ROTACIONAR DA DIREITA PARA ESQUERDA ****/
+.rotate-img-r{
+	-webkit-animation:rotacionar-r 1s;
+	-moz-animation:   rotacionar-r 1s;
+    -o-animation:     rotacionar-r 1s;
+	animation:        rotacionar-r 1s;
+}
+@-webkit-keyframes rotacionar-r{
+	from {transform:rotate(360deg);}
+	to   {transform:rotate(0deg);}
+}
+@-moz-keyframe rotacionar-r{
+	from {transform:rotate(360deg);}
+	to   {transform:rotate(0deg);}
+}
+@-o-animation rotacionar-r{
+	from {transform:rotate(360deg);}
+	to   {transform:rotate(0deg);}
+}
+@keyframes rotacionar-r{
+	from {transform:rotate(360deg);}
+	to   {transform:rotate(0deg);}
+}
 /*********** //SLIDE ************/
 
 /*********** MEDIA QUERY ************/

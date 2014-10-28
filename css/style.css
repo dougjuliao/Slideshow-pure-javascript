@@ -1,0 +1,198 @@
+
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+	vertical-align:baseline;
+	box-sizing: border-box;
+}
+html{
+	background: radial-gradient(circle, #fff 10%, #666);
+	font-family:cursive;
+	color:#334;
+}
+#container{
+	width:90%;
+	margin:0 auto;
+	background-color:#fff;
+	padding:20px;
+	box-shadow: 2px 11px 25px -4px #222;
+	border-radius:5px;
+	min-height:600px;
+}
+.header{
+	width:100%;
+	padding:10px;
+	text-align:center;
+	background-color:#eee;
+}
+.action{
+	width:50%;
+	background-color:#333;
+	color:#ddd;
+	padding: 10px;
+	min-height:400px;
+	float:left;
+}
+.btn{
+	margin-top:5px;
+	width:100px;
+	padding:5px;
+	background-color:#fff;
+	border-radius:3px;
+	color:#333;
+}
+.btn:hover{
+	background-color:#ddd;
+	color:#111;
+}
+.btn:active{
+	background-color:#666;
+	color:#ddd;
+}
+.execute{
+	width:50%;
+	background-color:#ddd;
+	color:#333;
+	padding: 10px;
+	overflow: hidden;
+	min-height:400px;
+	float:left;
+}
+.footer{
+	width:100%;
+	background-color:#777;
+	color:#ccc;
+	padding:10px;
+	text-align:center;
+}
+.clear{
+	clear:both;
+}
+.mostrar{
+	position:relative;
+}
+/*********** SLIDE ************/
+.mostrar-slide{
+	position:relative;
+}
+.slideshow{
+	position:relative;
+	width:100%;
+}
+.display-slide-none{
+	display:none;
+}
+.display-slide-block{
+	display:block;
+}
+.nav{
+	z-index:10;
+	position:absolute;
+	width:30px;
+	height:40px;
+	line-height: 31px;
+	text-align: center;
+	font-weight:bold;
+	border:2px solid #333;
+	cursor:pointer;
+	background-color:rgba(255,255,255,0.5);
+	color:#222;
+}
+.prev{
+	top:150px;
+	left:5px;
+}
+.next{
+	top:150px;
+	right:10px;
+}
+.images-content img{
+	position:absolute;
+	width:100%;
+}
+.images img{
+	display:none;
+	box-shadow: 2px 2px 9px 0px;
+}
+.navegacao-circulo{
+	
+}
+.navegacao-circulo li{
+	color:#fff;
+	background-color:rgba(0,0,0,0.7);
+	top: 267px;
+	left: 200px;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	margin-left: 5px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+.ativo{
+	background-color: #3700FF !important;
+}
+/*** ROTACIONAR DA ESQUERDA PARA DIREITA ****/
+.rotate-img{
+	-webkit-animation:rotacionar 1s;
+	-moz-animation:   rotacionar 1s;
+    -o-animation:     rotacionar 1s;
+	animation:        rotacionar 1s;
+}
+
+@-webkit-keyframes rotacionar{
+	from {transform:rotate(0deg);}
+	to   {transform:rotate(360deg);}
+}
+@-moz-keyframe rotacionar{
+	from {transform:rotate(0deg);}
+	to   {transform:rotate(360deg);}
+}
+@-o-animation rotacionar{
+	from {transform:rotate(0deg);}
+	to   {transform:rotate(360deg);}
+}
+@keyframes rotacionar{
+	from {transform:rotate(0deg);}
+	to   {transform:rotate(360deg);}
+}
+
+/*** ROTACIONAR DA DIREITA PARA ESQUERDA ****/
+.rotate-img-r{
+	-webkit-animation:rotacionar-r 1s;
+	-moz-animation:   rotacionar-r 1s;
+    -o-animation:     rotacionar-r 1s;
+	animation:        rotacionar-r 1s;
+}
+@-webkit-keyframes rotacionar-r{
+	from {transform:rotate(360deg);}
+	to   {transform:rotate(0deg);}
+}
+@-moz-keyframe rotacionar-r{
+	from {transform:rotate(360deg);}
+	to   {transform:rotate(0deg);}
+}
+@-o-animation rotacionar-r{
+	from {transform:rotate(360deg);}
+	to   {transform:rotate(0deg);}
+}
+@keyframes rotacionar-r{
+	from {transform:rotate(360deg);}
+	to   {transform:rotate(0deg);}
+}
+/*********** //SLIDE ************/
+
+/*********** MEDIA QUERY ************/
+@media(max-width:500px){
+	.action{
+		width:100%;
+		float:none;
+	}
+	.execute{
+		width:100%;
+		float:none;
+	}
+}

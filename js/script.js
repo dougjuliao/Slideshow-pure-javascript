@@ -93,6 +93,7 @@ var Slide = {
 	*/ 	
 	effect: function(eff,pos,time,direction){
 		switch(eff){
+			/***************************** SLIDE ************************************/
 			case 'slide':
 			if(direction === 'left'){
 				var left = pos;
@@ -116,6 +117,7 @@ var Slide = {
 				},time);
 			}
 			break;
+			/***************************** BOUNCE ************************************/
 			case 'bounce':
 				if(direction === 'left'){
 					var left = pos,
@@ -151,6 +153,7 @@ var Slide = {
 					},time);	
 				}
 			break;
+			/***************************** ROTATE ************************************/
 			case 'rotate':
 				if(direction === 'left'){
 					var left = pos;
@@ -202,6 +205,8 @@ function viewSlides(){
 		var numInicial = 0;
 		images[0].style.display = 'block';
 		naviCircle[0].className = 'ativo';
+		
+		
 		Slide.navigation[1].addEventListener('click',function(){ // Navegação DIREITA
 			numInicial += 1;
 			if(numInicial >= numSlides){

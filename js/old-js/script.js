@@ -95,9 +95,6 @@ var Slide = {
 		switch(eff){
 			/***************************** SLIDE ************************************/
 			case 'slide':
-			for(var i = 0; i < numSlides; i++){
-    			images[i].className = '';
-    		}
 			if(direction === 'left'){
 				var left = pos;
 				var slide = setInterval(function() {
@@ -122,9 +119,6 @@ var Slide = {
 			break;
 			/***************************** BOUNCE ************************************/
 			case 'bounce':
-				for(var i = 0; i < numSlides; i++){
-	    			images[i].className = '';
-	    		}
 				if(direction === 'left'){
 					var left = pos,
 						distanceBounce = 30;
@@ -161,9 +155,6 @@ var Slide = {
 			break;
 			/***************************** ROTATE ************************************/
 			case 'rotate':
-				for(var i = 0; i < numSlides; i++){
-	    			images[i].className = '';
-	    		}
 				if(direction === 'left'){
 					var left = pos;
 					var rotate = setInterval(function(){

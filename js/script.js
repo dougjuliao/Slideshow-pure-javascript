@@ -164,9 +164,6 @@ var Slide = {
 				    		images[i].className = 'rotate-img';
 				    	}
 				    	if (left === 0){ 
-				    		for(var i = 0; i < numSlides; i++){
-				    			images[i].className = '';
-				    		}
 				    		clearInterval(rotate);
 				    	}
 					},time);
@@ -179,13 +176,38 @@ var Slide = {
 				    		images[i].className = 'rotate-img-r';
 				    	}
 				    	if (right === 0){ 
-				    		for(var i = 0; i < numSlides; i++){
-				    			images[i].className = '';
-				    		}
 				    		clearInterval(rotate);
 				    	}
 					},time);
 				}
+			break;
+			/***************************** FADEIN ************************************/
+			case 'fadein':
+					var left = pos;
+					var fadein = setInterval(function(){
+						left += 5;
+						for(var i = 0; i < numSlides; i++){
+				    		images[i].style.left = left + 'px';
+				    		images[i].className = 'fadeIn';
+				    	}
+				    	if (left === 0){ 
+				    		clearInterval(fadein);
+				    	}
+					},time);
+			break;
+			/***************************** FADEIN ESCALA************************************/
+			case 'fadeinscale':
+					var left = pos;
+					var fadeinScale = setInterval(function(){
+						left += 5;
+						for(var i = 0; i < numSlides; i++){
+				    		images[i].style.left = left + 'px';
+				    		images[i].className = 'fadeIn-scale';
+				    	}
+				    	if (left === 0){ 
+				    		clearInterval(fadeinScale);
+				    	}
+					},time);
 			break;
 		}
 	}
@@ -218,7 +240,7 @@ function viewSlides(){
 			}
 			images[numInicial].style.display = 'block';
 			naviCircle[numInicial].className = 'ativo';
-			Slide.effect('rotate',-400,10,'left');
+			Slide.effect('fadein',-200,10);
 		});
 		Slide.navigation[0].addEventListener('click',function(){ // Navegação ESQUERDA
 			numInicial -= 1;
@@ -231,7 +253,7 @@ function viewSlides(){
 			}
 			images[numInicial].style.display = 'block';
 			naviCircle[numInicial].className = 'ativo';
-			Slide.effect('rotate',400,10,'right');
+			Slide.effect('fadeinscale',-200,10);
 		});
 		for(var a = 0; a < numSlides; a++){
 			naviCircle[a].addEventListener('click',function(){ // Navegação INDEX-CIRCLE

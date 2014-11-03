@@ -269,7 +269,7 @@ function viewSlides(){
 			//console.log(numInicial);
 			//console.log(numSlides);
 			
-		},2000);
+		},4000);
 		
 		Slide.navigation[1].addEventListener('click',function(){ // Navegação DIREITA
 			numInicial += 1;

@@ -85,7 +85,7 @@ var Slide = {
 
 	},
 	/*
-		Effect: function('efeito','posição inicial','tempo');
+		Effect: function('efeito','posição inicial','tempo','direção');
 		efeito		   = string;
 		posição incial = int;
 		tempo		   = int;
@@ -95,6 +95,9 @@ var Slide = {
 		switch(eff){
 			/***************************** SLIDE ************************************/
 			case 'slide':
+			for(var i = 0; i < numSlides; i++){
+    			images[i].className = '';
+    		}
 			if(direction === 'left'){
 				var left = pos;
 				var slide = setInterval(function() {
@@ -119,6 +122,9 @@ var Slide = {
 			break;
 			/***************************** BOUNCE ************************************/
 			case 'bounce':
+				for(var i = 0; i < numSlides; i++){
+	    			images[i].className = '';
+	    		}
 				if(direction === 'left'){
 					var left = pos,
 						distanceBounce = 30;
@@ -155,6 +161,9 @@ var Slide = {
 			break;
 			/***************************** ROTATE ************************************/
 			case 'rotate':
+				for(var i = 0; i < numSlides; i++){
+	    			images[i].className = '';
+	    		}
 				if(direction === 'left'){
 					var left = pos;
 					var rotate = setInterval(function(){
@@ -228,6 +237,39 @@ function viewSlides(){
 		images[0].style.display = 'block';
 		naviCircle[0].className = 'ativo';
 		
+
+		var transicao = setInterval(function(){
+			
+			numInicial += 1;
+
+			if(numInicial === numSlides){
+				numInicial = 0;
+				//numInicial += 1;
+				images.forEach(function(array){
+					array.style.display = 'none';
+				});
+
+
+				images[0].className = 'fadeIn';
+				images[0].style.display = 'block';
+				naviCircle[0].className = '';
+				naviCircle[0].className = 'ativo';
+				
+			}
+
+
+			images[numInicial].className = 'fadeIn';
+			images[numInicial].style.display = 'block';
+			
+			for(var i in naviCircle){
+				naviCircle[i].className = '';
+			}
+
+			naviCircle[numInicial].className = 'ativo';
+			//console.log(numInicial);
+			//console.log(numSlides);
+			
+		},2000);
 		
 		Slide.navigation[1].addEventListener('click',function(){ // Navegação DIREITA
 			numInicial += 1;

@@ -270,6 +270,8 @@ function viewSlides(){
 			slideShow.addEventListener('mouseover',function(){
 				clearInterval(transicao);
 			});
+
+			
 			
 		},4000);
 		

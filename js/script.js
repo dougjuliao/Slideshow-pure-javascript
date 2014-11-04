@@ -266,8 +266,10 @@ function viewSlides(){
 			}
 
 			naviCircle[numInicial].className = 'ativo';
-			//console.log(numInicial);
-			//console.log(numSlides);
+			
+			slideShow.addEventListener('mouseover',function(){
+				clearInterval(transicao);
+			});
 			
 		},4000);
 		

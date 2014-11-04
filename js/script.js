@@ -266,10 +266,12 @@ function viewSlides(){
 			}
 
 			naviCircle[numInicial].className = 'ativo';
-			//console.log(numInicial);
-			//console.log(numSlides);
 			
-		},2000);
+			slideShow.addEventListener('mouseover',function(){
+				clearInterval(transicao);
+			});
+			
+		},4000);
 		
 		Slide.navigation[1].addEventListener('click',function(){ // Navegação DIREITA
 			numInicial += 1;
